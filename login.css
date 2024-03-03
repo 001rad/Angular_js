@@ -1,0 +1,309 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+:root {
+    --primary-color: #c6c3c3;
+    --second-color: #ffffff;
+    --black-color: #000000;
+}
+
+body {
+    background-image: url("https://tse2.mm.bing.net/th?id=OIP.YlyYObQ2Bx6c-uDWA2tIPQHaEK&pid=Api&P=0&h=180 ");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+a {
+    text-decoration: none;
+    color: var(--second-color);
+}
+
+.btnn{
+    border-color:#ffffff ;
+    background-color:transparent;
+    width: 250px;
+    height: 30px;
+    margin: 2px;
+    border-width:0px ;
+    color:#ffffff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Add this to create space between login and services */
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 20px; /* Add some padding for better spacing */
+}
+
+.login-box {
+    position: relative;
+    width: 300px; /* Adjust the width as needed */
+    backdrop-filter: blur(25px);
+    border: 2px solid var(--primary-color);
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 2.5em 1.5em 1em 1.5em;
+    color: var(--second-color);
+    /* Add the following to center the login box vertically */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.services-box {
+   
+    position: relative;
+    width: 300px;
+    background-image: linear-gradient(lightpink,palevioletred);
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.2);
+    padding: 2.5em 1.5em 1em 1.5em;
+    color: var(--black-color);
+    /* Add animations */
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.login-box {
+    margin-right: 20px; /* Adjust margin as needed */
+}
+
+.login-header {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    width: 140px;
+    height: 40px;
+    border-radius:0px 0px 50px 50px;
+}
+
+.services-header {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(white,lightblue);
+    width: 140px;
+    height: 30px;
+    border-radius:0px 0px 20px 20px;
+}
+
+.login-header span,
+.services-header span {
+    font-size: 28px;
+    color: var(--black-color);
+}
+
+.login-header::before,
+.login-header::after,
+.services-header::before,
+.services-header::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+}
+
+.login-header::before {
+    left: -30px;
+    border-top-right-radius: 50%;
+    box-shadow: 0px 0 0 0 ;
+}
+
+.login-header::after {
+    right: -30px;
+    border-top-left-radius: 50%;
+    box-shadow: 0px 0 0 0 ;
+}
+
+.services-header::before {
+    left: calc(-30px + 100%);
+    border-top-right-radius: 50%;
+    box-shadow: 15px 0 0 0 var(lightpink);
+}
+
+.services-header::after {
+    right: calc(-30px + 100%);
+    border-top-left-radius: 50%;
+    box-shadow: -15px 0 0 0 var(lightpink);
+}
+
+.input-box,
+.services-list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+.input-field {
+    width: 100%;
+    height: 50px;
+    font-size: 16px;
+    background: transparent;
+    color: var(--second-color);
+    padding-inline: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    outline: none;
+}
+
+.label {
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    transition: 0.2s;
+}
+
+.input-field:focus~.label,
+.input-field:valid .label {
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 14px;
+    background-color: var(--primary-color);
+    border-radius: 30px;
+    color: var(--black-color);
+    padding: 0 10px;
+}
+
+.icon {
+    position: absolute;
+    top: 18px;
+    right: 25px;
+    font-size: 20px;
+}
+
+.remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+}
+
+.input-submit {
+    width: 100%;
+    height: 50px;
+    background: #0c60d6;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.input-submit:hover {
+    background: var(--second-color);
+}
+
+.services-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.services-list li {
+    font-size: 16px;
+    color: var(--second-color);
+    margin-bottom: 10px;
+}
+
+.services-list i {
+    margin-right: 5px;
+}
+
+@media only screen and (max-width: 768px) {
+    .wrapper {
+        flex-direction: column;
+    }
+
+    .login-box,
+    .services-box {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+
+/* Add your custom CSS styles here */
+
+/* Existing styles */
+
+#registrationForm {
+    display: none;
+    width: 100%; /* Take full width of the container */
+    margin-top: 20px; /* Adjust margin as needed */
+}
+
+#registrationForm h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--black-color);
+}
+
+#registrationForm input {
+    width: 100%;
+    height: 55px;
+    font-size: 16px;
+    background: transparent;
+    color: var(--second-color);
+    padding-inline: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 30px;
+    margin-bottom: 20px;
+    outline: none;
+}
+
+#registrationForm button {
+    width: 100%;
+    height: 50px;
+    background: #c6c3c3;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#registrationForm button:hover {
+    background: var(--second-color);
+}
+
+.img{
+    width: 700px;
+}

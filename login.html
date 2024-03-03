@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W</title>
+    <link rel='stylesheet' href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Poppins&amp;display=swap'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>   
+    <div class="wrapper">
+        <!-- Services Box -->
+        
+        
+        <!-- Login Box -->
+        <div class="login-box">
+            <div class="login-header">
+                <span> Login</span>
+            </div>
+
+            <form action="#" onsubmit="login(); return false;" id="loginForm">
+                <div class="input-box">
+                    <input type="text" id="user" class="input-field" required>
+                    <label for="user" class="label">Username</label>
+                    <i class="bx bx-user icon"></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="pass" class="input-field" autocomplete="off">
+                    <label for="pass" class="label">Password</label>
+                    <i class="bx bx-lock-alt icon" id="show-password"></i>
+                </div>
+                <div class="remember-forgot">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <div class="forgot">
+                        <a href="forgot_password.html">Forgot password</a>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <input type="submit" class="input-submit" value="Login">
+                </div>
+                <div class="register">
+                    <span>Don't have an account?
+                        <a href="#" onclick="showRegistrationForm()">Register</a>
+                    </span>
+                </div>
+            </form>
+
+            <!-- Registration Form -->
+            <form id="registrationForm" style="display: none;">
+                <h2 class="text-center ">Register for Home Health Care Center</h2>
+                <input type="text" id="regUsername" placeholder="Username" required>
+                <input type="password" id="regPassword" placeholder="Password" required>
+                <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+                <button type="button" onclick="register()">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Array to store registered users
+        var registeredUsers = [];
+
+        function showRegistrationForm() {
+            document.getElementById("loginForm").style.display = "none";
+            document.getElementById("registrationForm").style.display = "block";
+        }
+
+        function register() {
+            var regUsername = document.getElementById("regUsername").value;
+            var regPassword = document.getElementById("regPassword").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (regPassword !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            // Store user in the array
+            registeredUsers.push({ username: regUsername, password: regPassword });
+
+            // Switch to login form after registration
+            document.getElementById("loginForm").style.display = "block";
+            document.getElementById("registrationForm").style.display = "none";
+        }
+
+        function login() {
+            var enteredUsername = document.getElementById("user").value;
+            var enteredPassword = document.getElementById("pass").value;
+
+            // Check if the entered username and password match the registered credentials
+            var userFound = registeredUsers.find(function(user) {
+                return user.username === enteredUsername && user.password === enteredPassword;
+            });
+
+            if (userFound) {
+                console.log("Login successful!");
+                window.location.href = "index.html"; // Redirect to the homepage
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
+        }
+    </script>
+</body>
+
+</html>
